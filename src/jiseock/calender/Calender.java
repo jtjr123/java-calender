@@ -18,17 +18,24 @@ public class Calender {
 	}
 	
 	public static void main(String[] args) {
-		// TODO Auto-generated method stub
 
+		String PROMPT="cal> ";
 		Scanner scanner = new Scanner(System.in);
 		Calender cal = new Calender();
 		
-		System.out.println("반복횟수를 입력하세요.");
-		int repeat = scanner.nextInt();
 		
-		for (int i = 0; i<repeat; i++) {
+		int month = 1;
+		while (true) {
 			System.out.println("달을 입력하세요");
-			int month = scanner.nextInt();
+			System.out.println(PROMPT);
+			month = scanner.nextInt();
+			if(month == -1) {
+			 break;
+			}
+			
+			if(month > 12) {
+				continue;
+			}
 			System.out.printf("%d월은 %d일까지 있습니다. \n",month,cal.getMaxDaysOfMonth(month));	
 		}
 		
